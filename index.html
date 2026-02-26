@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深度认识单虓晗 - 系统性分析</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <span class="header-badge">✦ 深度画像分析</span>
+            <h1 class="header-title">深度认识单虓晗</h1>
+            <p class="header-subtitle">
+                基于8年67篇文章、36.4万字的系统性分析，全面解读一个从程序世界觉醒、经哲学洗礼重建三观的思想者。他用"刻刀"雕刻世界真相，用"画笔"描绘生命意义，以系统黑客的姿态游戏人间。
+            </p>
+            <div class="header-meta">
+                <div class="header-meta-item">
+                    <span>📚</span>
+                    <span>文章：<strong>67篇</strong></span>
+                </div>
+                <div class="header-meta-item">
+                    <span>✍️</span>
+                    <span>字数：<strong>36.4万</strong></span>
+                </div>
+                <div class="header-meta-item">
+                    <span>📅</span>
+                    <span>跨度：<strong>2017-2025</strong></span>
+                </div>
+                <div class="header-meta-item">
+                    <span>📖</span>
+                    <span>专栏：<strong>7+系列</strong></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Summary Box -->
+        <div class="summary-box">
+            <div class="summary-label">核心画像</div>
+            <h2 class="summary-title">
+                一个从程序世界觉醒的<em>哲学行者</em>，用8年时间构建了融合东西方智慧的认知体系，在求真与求存之间找到平衡，以<em>系统黑客</em>的姿态游戏人间。
+            </h2>
+            <p class="summary-text">
+                他是资深程序员出身的技术管理者，更是一个持续探索人生意义的思想者。他用"刻刀"雕刻世界真相，用"画笔"描绘生命意义，在理性与感性之间自由切换，点亮灯塔照亮后来者。他的核心超能力是"发现事物运行原理"——又叫庖丁解牛。
+            </p>
+        </div>
+
+        <!-- Tab Navigation -->
+        <nav class="tab-nav" role="navigation" aria-label="章节导航">
+            <button class="tab-btn active" data-tab="section-1" aria-selected="true">
+                <span class="tab-btn-num">1</span>
+                <span class="tab-btn-text">身份演化</span>
+            </button>
+            <button class="tab-btn" data-tab="section-2" aria-selected="false">
+                <span class="tab-btn-num">2</span>
+                <span class="tab-btn-text">认知框架</span>
+            </button>
+            <button class="tab-btn" data-tab="section-3" aria-selected="false">
+                <span class="tab-btn-num">3</span>
+                <span class="tab-btn-text">人生哲学</span>
+            </button>
+            <button class="tab-btn" data-tab="section-4" aria-selected="false">
+                <span class="tab-btn-num">4</span>
+                <span class="tab-btn-text">方法论</span>
+            </button>
+            <button class="tab-btn" data-tab="section-5" aria-selected="false">
+                <span class="tab-btn-num">5</span>
+                <span class="tab-btn-text">写作风格</span>
+            </button>
+            <button class="tab-btn" data-tab="section-6" aria-selected="false">
+                <span class="tab-btn-num">6</span>
+                <span class="tab-btn-text">个人世界</span>
+            </button>
+            <button class="tab-btn" data-tab="section-7" aria-selected="false">
+                <span class="tab-btn-num">7</span>
+                <span class="tab-btn-text">阅读指南</span>
+            </button>
+            <button class="tab-btn" data-tab="section-8" aria-selected="false">
+                <span class="tab-btn-num">8</span>
+                <span class="tab-btn-text">AI眼中的你</span>
+            </button>
+        </nav>
+
+        <!-- Tab Panels Container -->
+        <div id="tab-panels">
+            <!-- 章节内容将通过JavaScript动态加载 -->
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">
+                基于单虓晗简书67篇文章（36.4万字）的深度分析 · 2017-2025<br>
+                <a href="https://www.jianshu.com/u/1eedc2e891da" target="_blank">📖 简书主页</a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // 章节文件列表
+        const sections = [
+            'section-1-identity.html',
+            'section-2-cognitive.html',
+            'section-3-philosophy.html',
+            'section-4-methodology.html',
+            'section-5-writing.html',
+            'section-6-personal.html',
+            'section-7-reading.html',
+            'section-8-ai-view.html'
+        ];
+
+        // 加载所有章节
+        async function loadSections() {
+            const container = document.getElementById('tab-panels');
+            
+            for (const section of sections) {
+                try {
+                    const response = await fetch(section);
+                    const html = await response.text();
+                    container.innerHTML += html;
+                } catch (error) {
+                    console.error(`Failed to load ${section}:`, error);
+                }
+            }
+            
+            // 初始化Tab切换
+            initTabs();
+        }
+
+        // 初始化Tab切换
+        function initTabs() {
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 移除所有active
+                    document.querySelectorAll('.tab-btn').forEach(b => {
+                        b.classList.remove('active');
+                        b.setAttribute('aria-selected', 'false');
+                    });
+                    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                    
+                    // 添加active
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-selected', 'true');
+                    const panel = document.getElementById(btn.dataset.tab);
+                    if (panel) {
+                        panel.classList.add('active');
+                        // 滚动到Tab导航位置
+                        document.querySelector('.tab-nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        }
+
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', loadSections);
+    </script>
+</body>
+</html>

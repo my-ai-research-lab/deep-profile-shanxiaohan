@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="bookGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A7F37"/>
+      <stop offset="100%" style="stop-color:#2DA44E"/>
+    </linearGradient>
+    <linearGradient id="lightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700"/>
+      <stop offset="100%" style="stop-color:#FFA500"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 圆形背景 -->
+  <circle cx="16" cy="16" r="15" fill="url(#bookGrad)"/>
+  
+  <!-- 书籍形状 -->
+  <path d="M8 22 L8 10 Q8 8 10 8 L15 8 Q16 8 16 9 L16 22 Q16 23 15 23 L10 23 Q8 23 8 22 Z" fill="white" opacity="0.9"/>
+  <path d="M24 22 L24 10 Q24 8 22 8 L17 8 Q16 8 16 9 L16 22 Q16 23 17 23 L22 23 Q24 23 24 22 Z" fill="white" opacity="0.9"/>
+  
+  <!-- 书脊 -->
+  <line x1="16" y1="8" x2="16" y2="23" stroke="#1A7F37" stroke-width="0.5"/>
+  
+  <!-- 灯光/思想光芒 -->
+  <circle cx="16" cy="6" r="2.5" fill="url(#lightGrad)"/>
+  <path d="M16 3 L16 1" stroke="#FFD700" stroke-width="1" stroke-linecap="round"/>
+  <path d="M13 4 L11.5 2.5" stroke="#FFD700" stroke-width="0.8" stroke-linecap="round"/>
+  <path d="M19 4 L20.5 2.5" stroke="#FFD700" stroke-width="0.8" stroke-linecap="round"/>
+  
+  <!-- 书页线条 -->
+  <line x1="10" y1="11" x2="14" y2="11" stroke="#1A7F37" stroke-width="0.6" opacity="0.5"/>
+  <line x1="10" y1="13" x2="14" y2="13" stroke="#1A7F37" stroke-width="0.6" opacity="0.5"/>
+  <line x1="10" y1="15" x2="14" y2="15" stroke="#1A7F37" stroke-width="0.6" opacity="0.5"/>
+  <line x1="18" y1="11" x2="22" y2="11" stroke="#1A7F37" stroke-width="0.6" opacity="0.5"/>
+  <line x1="18" y1="13" x2="22" y2="13" stroke="#1A7F37" stroke-width="0.6" opacity="0.5"/>
+  <line x1="18" y1="15" x2="22" y2="15" stroke="#1A7F37" stroke-width="0.6" opacity="0.5"/>
+</svg>
