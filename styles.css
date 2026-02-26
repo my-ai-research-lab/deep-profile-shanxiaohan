@@ -1621,3 +1621,87 @@ tr:last-child td {
         page-break-inside: avoid;
     }
 }
+
+/* ============================================
+   Tag Styles
+   ============================================ */
+.tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.tag-success {
+    background: #D4F8E8;
+    color: #1A7F37;
+}
+
+.tag-info {
+    background: #DDF4FF;
+    color: #0969DA;
+}
+
+.tag-warning {
+    background: #FFF8C5;
+    color: #9A6700;
+}
+
+.tag-purple {
+    background: #F6F0FF;
+    color: #7C3AED;
+}
+
+/* ============================================
+   Highlight Box Enhanced
+   ============================================ */
+.highlight-box {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-md);
+    background: linear-gradient(135deg, rgba(26, 127, 55, 0.08) 0%, rgba(9, 105, 218, 0.08) 100%);
+    border: 1px solid rgba(26, 127, 55, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+    text-align: left;
+}
+
+.highlight-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+}
+
+.highlight-content {
+    flex: 1;
+}
+
+.highlight-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-success);
+    margin-bottom: var(--spacing-xs);
+}
+
+.highlight-text {
+    font-size: var(--body-text);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.highlight-text strong {
+    color: var(--color-text-primary);
+}
+
+@media (max-width: 480px) {
+    .highlight-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .highlight-icon {
+        margin: 0 auto;
+    }
+}
