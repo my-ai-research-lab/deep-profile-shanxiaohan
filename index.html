@@ -2,10 +2,32 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="单虓晗深度画像分析 - 基于8年67篇文章36.4万字的系统性分析">
+    <meta name="theme-color" content="#1A7F37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="section-1-identity.html" as="fetch" crossorigin>
+    
+    <!-- DNS预解析 -->
+    <link rel="dns-prefetch" href="https://www.jianshu.com">
+    
     <title>深度认识单虓晗 - 系统性分析</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- 关键CSS内联 - 首屏渲染优化 -->
+    <style>
+        body { font-family: -apple-system, "system-ui", "Segoe UI", "Noto Sans SC", Helvetica, Arial, sans-serif; background: #FAFBFC; margin: 0; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 24px 16px; }
+        .header { text-align: center; padding: 32px 16px; }
+        .tab-nav { display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .tab-nav::-webkit-scrollbar { display: none; }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -130,30 +152,68 @@
 
         // 初始化Tab切换
         function initTabs() {
+            const tabNav = document.querySelector('.tab-nav');
+            
             document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    // 移除所有active
-                    document.querySelectorAll('.tab-btn').forEach(b => {
-                        b.classList.remove('active');
-                        b.setAttribute('aria-selected', 'false');
-                    });
-                    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-                    
-                    // 添加active
-                    btn.classList.add('active');
-                    btn.setAttribute('aria-selected', 'true');
-                    const panel = document.getElementById(btn.dataset.tab);
-                    if (panel) {
-                        panel.classList.add('active');
-                        // 滚动到Tab导航位置
-                        document.querySelector('.tab-nav').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // 支持触摸和点击
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    switchTab(btn);
+                });
+                
+                // 键盘无障碍支持
+                btn.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        switchTab(btn);
                     }
                 });
             });
+            
+            function switchTab(btn) {
+                // 移除所有active
+                document.querySelectorAll('.tab-btn').forEach(b => {
+                    b.classList.remove('active');
+                    b.setAttribute('aria-selected', 'false');
+                });
+                document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+                
+                // 添加active
+                btn.classList.add('active');
+                btn.setAttribute('aria-selected', 'true');
+                const panel = document.getElementById(btn.dataset.tab);
+                if (panel) {
+                    panel.classList.add('active');
+                    
+                    // 确保选中的Tab按钮在可视区域内
+                    btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    
+                    // 平滑滚动到内容区域（移动端友好）
+                    setTimeout(() => {
+                        tabNav.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 100);
+                }
+            }
         }
 
         // 页面加载完成后执行
         document.addEventListener('DOMContentLoaded', loadSections);
+        
+        // 性能监控 - 图片懒加载
+        if ('IntersectionObserver' in window) {
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
     </script>
 </body>
 </html>
