@@ -1756,3 +1756,36 @@ tr:last-child td {
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-text-muted);
 }
+
+/* ========================================
+   新增工具类：统一 inline style
+   ======================================== */
+
+/* 小节标题变体 */
+.subsection-title-sm {
+    font-size: var(--heading-4);
+    font-weight: 600;
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+}
+
+.subsection-title-sm.green { color: var(--color-success); }
+.subsection-title-sm.blue { color: var(--color-info); }
+.subsection-title-sm.orange { color: var(--color-warning-dark); }
+
+/* 居中卡片 */
+.info-card.centered { text-align: center; }
+
+/* 高亮文本变体 */
+.highlight-text.compact { 
+    font-size: var(--body-small); 
+    margin-bottom: var(--spacing-md); 
+}
+
+.highlight-text.spaced { line-height: 2; }
+
+/* 大号引用文本 */
+.quote-text.large { 
+    font-size: 18px; 
+    line-height: 1.8; 
+}
+
