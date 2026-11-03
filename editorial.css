@@ -272,6 +272,10 @@ body {
     box-shadow: none;
 }
 
+.section-overview-chart svg {
+    filter: saturate(0.72);
+}
+
 .insight-box,
 .quote,
 .section-intro {
@@ -413,6 +417,33 @@ button:focus-visible,
     .info-card, .article-card { padding: 24px; }
     .back-to-top { bottom: 16px; right: 16px; }
     .footer-links { line-height: 2.2; }
+}
+
+@media (max-width: 768px) {
+    .section-overview-chart {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+
+    .section-overview-chart::before {
+        content: "左右滑动查看完整图表 →";
+        display: block;
+        position: sticky;
+        left: 0;
+        width: max-content;
+        margin-bottom: 12px;
+        color: var(--color-text-muted);
+        font-size: 12px;
+        letter-spacing: 0.04em;
+    }
+
+    .section-overview-chart svg {
+        min-width: 900px;
+        min-height: 0;
+        height: auto;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
