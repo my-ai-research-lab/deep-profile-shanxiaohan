@@ -111,6 +111,7 @@ async function loadSections() {
         chapterContainer.querySelectorAll('a[target="_blank"]').forEach((link) => {
             link.rel = 'noopener noreferrer';
         });
+        window.enhanceChapterGuides?.(chapterContainer);
         selectHashChapter();
     } catch (error) {
         activeChapter = null;
