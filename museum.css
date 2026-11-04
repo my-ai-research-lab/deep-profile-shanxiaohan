@@ -10,8 +10,8 @@
     --display: clamp(48px, 6.6vw, 96px);
     --title: clamp(32px, 4vw, 56px);
     --subheading: 24px;
-    --body: 16px;
-    --label: 12px;
+    --body: var(--type-body, 17px);
+    --label: var(--type-caption, 14px);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 100px; }
@@ -244,4 +244,36 @@ body[data-museum="ready"] .comparison { cursor: ew-resize; touch-action: pan-y; 
 @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+body { font-family: var(--brand-sans); }
+h1, h2, h3 { letter-spacing: -.025em; }
+h3 { line-height: 1.45; }
+.hero-description, .section-introduction, .layer-detail > p:not(.eyebrow), .era-copy > p:not(.eyebrow) { line-height: 1.9; letter-spacing: .01em; }
+.hero-description { color: #C4C4C4; }
+.eyebrow { letter-spacing: .1em; }
+.axis-label { color: var(--museum-muted); }
+.topic-summary { padding-block: 28px; }
+.topic-summary > div { min-width: 0; }
+#topic-name { font-weight: 600; }
+#topic-description { line-height: 1.85; }
+.section-index, .era-buttons, .art-index { font-variant-numeric: tabular-nums; }
+.layer-detail { padding-top: 32px; }
+.layer-detail h3 { margin-block: 16px; }
+.layer-detail > p:not(.eyebrow) { max-width: 440px; }
+.comparison-labels, .art-caption { font-size: var(--label); letter-spacing: .02em; }
+.archive-list a { padding-block: 16px; }
+.archive-list a i { transition: transform .2s ease; }
+.archive-list a:hover i { transform: translateX(3px); }
+.closing-quote { letter-spacing: -.015em; line-height: 1.5; }
+@media (max-width: 768px) {
+    .hero-copy .eyebrow { font-size: var(--label); letter-spacing: .055em; }
+    .hero-footnote { max-width: 28em; }
+    .topic-summary { gap: 20px; }
+    .comparison-labels > span, .art-caption > span { max-width: 46%; }
+    .comparison-labels > span:last-child, .art-caption > span:last-child { text-align: right; }
+    .sculpture-tools { flex-wrap: wrap; }
+    .architecture-layer { grid-template-columns: 28px 1fr; }
+    .architecture-layer small { grid-column: 2; }
+    .archive-list a { gap: 10px; }
 }
