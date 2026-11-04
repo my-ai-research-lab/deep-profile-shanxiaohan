@@ -93,7 +93,7 @@ async function loadSections() {
     chapterContainer.innerHTML = '<p class="loading-state" role="status">正在打开人物思想档案…</p>';
     try {
         const responses = await Promise.all(sectionFiles.map(async (file) => {
-            const response = await fetch(file);
+            const response = await fetch(file, { cache: 'no-cache' });
             if (!response.ok) throw new Error(`${file}: HTTP ${response.status}`);
             return response.text();
         }));
