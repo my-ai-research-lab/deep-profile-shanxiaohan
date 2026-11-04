@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0A0A0A">
+    <meta name="description" content="走进单虓晗的思想博物馆：以交互雕塑、认知拆解与刻刀和画笔，探索一个人的思想宇宙。">
+    <title>单虓晗 · 思想博物馆</title>
+    <link rel="icon" href="favicon.svg?v=20261104-unified" type="image/svg+xml">
+    <link rel="stylesheet" href="museum.css">
+    <link rel="stylesheet" href="site.css?v=20261104-unified">
+    <script src="sculpture.js" defer></script>
+    <script src="museum.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#cognition">跳至展览内容</a>
+    <header class="museum-header site-header">
+        <a class="brand-link" href="museum.html" aria-label="思想博物馆首页"><span class="brand-symbol" aria-hidden="true">∷</span> 单虓晗<span class="brand-caption">MUSEUM OF MIND</span></a>
+        <nav class="main-nav" aria-label="展览导航">
+            <a href="#cognition">思维结构</a><a href="#perspectives">刻刀与画笔</a><a href="#evolution">思想轨迹</a>
+        </nav>
+        <nav class="mode-nav" aria-label="浏览模式"><a href="museum.html" aria-current="page">思想展览</a><a href="index.html">完整阅读 <span class="mode-arrow" aria-hidden="true">↗</span></a></nav>
+    </header>
+    <main>
+        <section class="entrance wrap" id="entrance" aria-labelledby="museum-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A PORTRAIT, BEYOND THE SURFACE</p>
+                <h1 id="museum-title">一个人的<br>思想<span class="serif">宇宙。</span></h1>
+                <p class="hero-description">从程序员到哲学行者。<br>用结构看透世界，用创造赋予意义。</p>
+                <a class="primary-link" href="#cognition">开始探索 <span aria-hidden="true">↓</span></a>
+                <p class="hero-footnote">单虓晗 · 基于既有文章档案的可视化解读</p>
+            </div>
+            <div class="sculpture-stage" role="group" aria-label="七层思想雕塑">
+                <div class="art-index"><span>OBJECT 001</span><span>七个切面，一个整体</span></div>
+                <div class="sculpture-viewport">
+                    <div class="sculpture-fallback" role="img" aria-label="由七层轨道组成的思想雕塑示意图">
+                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <canvas id="sculpture" aria-label="思想雕塑，可拖动旋转；也可使用下方旋转按钮" width="800" height="700"></canvas>
+                    <span class="axis-label axis-top" aria-hidden="true">FORM / THOUGHT</span>
+                    <span class="axis-label axis-bottom" aria-hidden="true">7 DIMENSIONS</span>
+                </div>
+                <div class="sculpture-tools enhanced" hidden>
+                    <button id="sculpture-expand" type="button" aria-pressed="false">展开结构 <span aria-hidden="true">↗</span></button>
+                    <div class="object-actions">
+                        <button id="sculpture-rotate" type="button" aria-label="旋转雕塑四分之一圈">↻</button>
+                        <button id="sculpture-pause" type="button" aria-pressed="false">暂停旋转</button>
+                        <button id="sculpture-reset" type="button">复位</button>
+                    </div>
+                </div>
+                <p id="sculpture-hint" class="object-hint">七个切面对应七个章节；几何形态是一种艺术表达。</p>
+            </div>
+            <div class="topic-bar enhanced" hidden role="group" aria-label="选择思想切面">
+                <button type="button" data-topic="0" aria-pressed="true"><span>01</span> 身份</button>
+                <button type="button" data-topic="1" aria-pressed="false"><span>02</span> 认知</button>
+                <button type="button" data-topic="2" aria-pressed="false"><span>03</span> 哲学</button>
+                <button type="button" data-topic="3" aria-pressed="false"><span>04</span> 方法</button>
+                <button type="button" data-topic="4" aria-pressed="false"><span>05</span> 个人</button>
+                <button type="button" data-topic="5" aria-pressed="false"><span>06</span> 工作</button>
+                <button type="button" data-topic="6" aria-pressed="false"><span>07</span> AI</button>
+            </div>
+            <div class="topic-summary" aria-live="polite" aria-atomic="true">
+                <div><span id="topic-name">身份演化</span><p id="topic-description">技术管理者、哲学行者与系统黑客，构成同一个人的不同切面。</p></div>
+                <a id="topic-link" href="index.html#section-1">阅读这一章 <span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+
+        <div class="archive-stats wrap" aria-label="原始档案范围">
+            <p class="eyebrow">THE ARCHIVE<br><span>让思想有迹可循</span></p>
+            <p><strong>67</strong><span>篇历史文章</span></p>
+            <p><strong>36.4<span>万</span></strong><span>字的思想记录</span></p>
+            <p><strong>8</strong><span>年 · 2017—2025</span></p>
+        </div>
+
+        <section class="exhibit wrap" id="cognition" aria-labelledby="cognition-title">
+            <div class="section-heading"><p class="eyebrow">01 / THE ARCHITECTURE</p><span class="section-index" aria-hidden="true">01</span></div>
+            <div class="cognition-grid">
+                <div class="exhibit-copy">
+                    <h2 id="cognition-title">思维，也有<br><span class="muted">底层架构。</span></h2>
+                    <p class="section-introduction">如果大脑是一台计算机，<br>你会先升级哪一层？</p>
+                    <div class="layer-detail" aria-live="polite" aria-atomic="true">
+                        <p id="layer-code" class="eyebrow">LAYER 01 / OPERATING SYSTEM</p>
+                        <h3 id="layer-title">操作系统</h3>
+                        <p id="layer-description">理性与情绪像两套操作系统。理解它们如何工作，是理解自己的起点。</p>
+                        <a class="text-link" id="layer-link" href="index.html#section-2">阅读认知框架 <span aria-hidden="true">↗</span></a>
+                    </div>
+                </div>
+                <div class="architecture-scene" role="group" aria-label="四层认知架构，点击一层查看说明">
+                    <div class="layer-stack">
+                        <button type="button" class="architecture-layer enhanced" data-layer="3" aria-pressed="false" style="--level:3" hidden><span>04</span><strong>应用程序</strong><small>方法论</small><i aria-hidden="true"></i></button>
+                        <button type="button" class="architecture-layer enhanced" data-layer="2" aria-pressed="false" style="--level:2" hidden><span>03</span><strong>算法</strong><small>归纳与演绎</small><i aria-hidden="true"></i></button>
+                        <button type="button" class="architecture-layer enhanced" data-layer="1" aria-pressed="false" style="--level:1" hidden><span>02</span><strong>数据</strong><small>认知结构</small><i aria-hidden="true"></i></button>
+                        <button type="button" class="architecture-layer enhanced" data-layer="0" aria-pressed="true" style="--level:0" hidden><span>01</span><strong>操作系统</strong><small>理性与情绪</small><i aria-hidden="true"></i></button>
+                    </div>
+                    <p class="diagram-caption">THE MIND, DECONSTRUCTED<br><span>选择一层，理解它如何工作</span></p>
+                    <noscript><p>操作系统：理性与情绪 → 数据：认知结构 → 算法：归纳与演绎 → 应用程序：方法论。</p></noscript>
+                </div>
+            </div>
+        </section>
+
+        <section class="exhibit perspectives" id="perspectives" aria-labelledby="perspectives-title">
+            <div class="wrap">
+                <div class="section-heading"><p class="eyebrow">02 / TWO WAYS OF SEEING</p><span class="section-index" aria-hidden="true">02</span></div>
+                <div class="perspective-heading"><h2 id="perspectives-title">看透世界。<br><span class="muted">也赋予它意义。</span></h2><p>刻刀，寻找真实的结构。<br>画笔，创造生命的意义。<br><span>同一个世界，两种观看的方式。</span></p></div>
+                <div class="comparison" style="--paint:50%">
+                    <div class="comparison-labels"><span>刻刀 / STRUCTURE</span><span>画笔 / MEANING</span></div>
+                    <svg class="world-art wire-art" viewBox="0 0 1200 540" role="img" aria-label="以结构线条呈现的山形"><g id="wire-world"><path d="M100 450 370 140 560 300 780 90 1100 450Z M370 140 370 450 M780 90 780 450 M100 450 560 300 1100 450" fill="none" stroke="#9b9b9b"/></g></svg>
+                    <svg class="world-art paint-art" viewBox="0 0 1200 540" role="img" aria-label="以暖铜色面呈现的同一山形"><g id="paint-world"><path d="M100 450 370 140 560 300 780 90 1100 450Z" fill="#C99C74"/></g></svg>
+                    <div class="comparison-divider" aria-hidden="true"><span>↔</span></div>
+                    <div class="art-caption" aria-hidden="true"><span>世界是什么？</span><span>世界对我意味着什么？</span></div>
+                </div>
+                <div class="perspective-control enhanced" hidden>
+                    <label for="perspective">拖动，改变观看方式</label>
+                    <input id="perspective" type="range" min="0" max="100" value="50" aria-valuetext="刻刀与画笔，各占一半">
+                    <output id="perspective-value" for="perspective">刻刀与画笔 · 并置</output>
+                </div>
+                <div class="perspective-footer"><p>用刻刀看透世界，用画笔赋予意义。</p><a class="text-link" href="index.html#section-3">阅读人生哲学 <span aria-hidden="true">↗</span></a></div>
+            </div>
+        </section>
+
+        <section class="exhibit wrap" id="evolution" aria-labelledby="evolution-title">
+            <div class="section-heading"><p class="eyebrow">03 / BECOMING</p><span class="section-index" aria-hidden="true">03</span></div>
+            <div class="evolution-heading"><h2 id="evolution-title">思想不是结论。<br><span class="muted">而是一段旅程。</span></h2><p>沿着八年的写作轨迹，<br>看见一个人如何成为自己。</p></div>
+            <div class="era-buttons enhanced" role="group" aria-label="选择思想成长阶段" hidden>
+                <button type="button" data-era="0" aria-pressed="true">2017</button><button type="button" data-era="1" aria-pressed="false">2018</button><button type="button" data-era="2" aria-pressed="false">2019—20</button><button type="button" data-era="3" aria-pressed="false">2021</button><button type="button" data-era="4" aria-pressed="false">2022</button><button type="button" data-era="5" aria-pressed="false">2023</button><button type="button" data-era="6" aria-pressed="false">2024—25</button>
+            </div>
+            <div class="era-detail" aria-live="polite" aria-atomic="true">
+                <span id="era-year" class="era-year">2017</span>
+                <div class="era-copy"><p id="era-stage" class="eyebrow">起步期 / THE BEGINNING</p><h3 id="era-title">从代码，走向人生。</h3><p id="era-description">开始系统性写作，以程序员视角审视思维方法。写下《人生没有指南》，探索逻辑之外的人生意义。</p><a class="text-link" href="index.html#section-1">阅读完整演化轨迹 <span aria-hidden="true">↗</span></a></div>
+            </div>
+        </section>
+
+        <section class="archive-section wrap" id="archive" aria-labelledby="archive-title">
+            <div class="archive-heading"><p class="eyebrow">KEEP EXPLORING</p><h2 id="archive-title">展览之外，<br><span class="muted">还有更完整的他。</span></h2><p>七个章节，一份完整档案。<br>保留原文分析，回到清晰、安静的阅读。</p></div>
+            <div class="archive-list">
+                <a href="index.html#section-1"><span>01</span>身份演化<i aria-hidden="true">↗</i></a>
+                <a href="index.html#section-2"><span>02</span>认知框架<i aria-hidden="true">↗</i></a>
+                <a href="index.html#section-3"><span>03</span>人生哲学<i aria-hidden="true">↗</i></a>
+                <a href="index.html#section-4"><span>04</span>方法论<i aria-hidden="true">↗</i></a>
+                <a href="index.html#section-5"><span>05</span>个人世界<i aria-hidden="true">↗</i></a>
+                <a href="index.html#section-6"><span>06</span>工作经历<i aria-hidden="true">↗</i></a>
+                <a href="index.html#section-7"><span>07</span>AI 视角<i aria-hidden="true">↗</i></a>
+                <a href="index.html#section-8"><span>08</span>文章索引<i aria-hidden="true">↗</i></a>
+            </div>
+        </section>
+        <section class="closing wrap" aria-label="个人专栏">
+            <p class="eyebrow">THE STORY CONTINUES</p><p class="closing-quote">用刻刀，<span class="serif">用画笔。</span><br>也用自己的人生。</p>
+            <a class="blog-link primary-link" href="https://my.feishu.cn/wiki/DyyBw5m9Bi0vFMkb0HDc7S1JnGe" target="_blank" rel="noopener noreferrer">飞书个人Blog <span aria-hidden="true">↗</span></a>
+            <p class="closing-note">继续阅读他的个人专栏 · 在新标签页打开</p>
+        </section>
+    </main>
+    <footer class="museum-footer wrap"><span>单虓晗 / 思想博物馆</span><p>AI 辅助构建 · 基于既有档案的解读，非本人定论</p><a href="#entrance">回到顶部 ↑</a></footer>
+    <noscript><p class="noscript-note">当前为静态展览。完整章节与飞书入口仍可访问；启用 JavaScript 后可旋转、拆解与切换展品。</p></noscript>
+</body>
+</html>

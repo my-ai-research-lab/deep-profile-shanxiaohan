@@ -76,8 +76,9 @@ function switchChapter(button, shouldScroll = true, updateHash = true) {
             behavior: scrollBehavior()
         });
         const navigationTop = chapterNavigation.getBoundingClientRect().top + window.scrollY;
-        const contentTop = panel.getBoundingClientRect().top + window.scrollY - chapterNavigation.offsetHeight - 32;
-        window.scrollTo({ top: Math.max(0, Math.min(navigationTop - 8, contentTop)), behavior: scrollBehavior() });
+        const navigationInset = parseFloat(getComputedStyle(chapterNavigation).top) || 8;
+        const contentTop = panel.getBoundingClientRect().top + window.scrollY - chapterNavigation.offsetHeight - navigationInset - 24;
+        window.scrollTo({ top: Math.max(0, Math.min(navigationTop - navigationInset, contentTop)), behavior: scrollBehavior() });
     }
     updateReadingProgress();
 }
